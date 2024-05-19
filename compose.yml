@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  react-tutorial2:
+    container_name: react-tutorial2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - type: bind
+      source: ./app
+      target: /workspace
+    #"react-app"の部分がプロジェクト名になる
+    command: sh -c "cd react-tutorial2 && yarn start" 
+    ports:
+      - 3000:3000
+    stdin_open: true #標準入力をコンテナと紐付ける
